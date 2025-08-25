@@ -1,16 +1,20 @@
-# loginpage
+# Assignment 10
 
-A new Flutter project.
+## Overview
+This repository contains the source code and screenshots for Assignment 10.
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+Below are some screenshots demonstrating the app:
 
-A few resources to get you started if this is your first Flutter project:
+![Screenshot 1](screenshots/welcome.png)
+![Screenshot 2](screenshots/signin.png)
+![Screenshot 3](screenshots/signup.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## How to Run
+1. Clone the repository.
+2. Open the project in your IDE.
+3. Run the app on your preferred device or emulator.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Author
+Abrar Sami Nawshad
