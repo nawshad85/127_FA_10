@@ -31,13 +31,13 @@ class LoginPage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 0.04 * MediaQuery.of(context).size.height),
+                  SizedBox(height: 0.06 * MediaQuery.of(context).size.height),
                   Text("Welcome", style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 26,
                     color: Color(0xFF7B4BF8)
                   ),),
-                  SizedBox(height: 0.02 * MediaQuery.of(context).size.height),
+                  SizedBox(height: 0.04 * MediaQuery.of(context).size.height),
                   SizedBox(
                     width: 0.9 * MediaQuery.of(context).size.width,
                     child: TextField(
@@ -61,7 +61,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 30),
                   SizedBox(
                     width: 0.4 * MediaQuery.of(context).size.width,
                     child: ElevatedButton(
