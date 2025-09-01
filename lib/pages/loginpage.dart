@@ -3,9 +3,14 @@ import 'package:loginpage/pages/signup.dart';
 
 // keyboard_arrow_left_sharp
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +87,7 @@ class LoginPage extends StatelessWidget {
                       TextButton(onPressed: (){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const SignupPage()),
+                          MaterialPageRoute(builder: (context) => SignupPage()),
                         );
                       }, child: Text("Sign Up", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))),
                     ],

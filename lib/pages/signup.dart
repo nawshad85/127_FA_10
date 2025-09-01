@@ -1,7 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/auth/auth_service.dart';
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({super.key});
+class SignupPage extends StatefulWidget {
+  SignupPage({super.key});
+
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  final _emailController = TextEditingController();
+
+  final _passwordController = TextEditingController();
+
+  final _confirmPasswordController = TextEditingController();
+  final authService = AuthService();
+  void signup() async{
+    final email = _emailController.text;
+    final password = _passwordController.text;
+    final confirmPassword = _confirmPasswordController.text;
+
+    if(password != confirmPassword){
+      // print("Password dont match");
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Password dont match")));
+    }
+    try{
+      await authService.signUpWithEmailPassword(email, password);
+      if(mounted){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Registration Successfull")));
+      }
+    }
+    catch(e){
+      if(mounted){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +72,7 @@ class SignupPage extends StatelessWidget {
                   SizedBox(
                     width: 0.9 * MediaQuery.of(context).size.width,
                     child: TextField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -50,6 +85,7 @@ class SignupPage extends StatelessWidget {
                   SizedBox(
                     width: 0.9 * MediaQuery.of(context).size.width,
                     child: TextField(
+                      controller: _passwordController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -62,6 +98,7 @@ class SignupPage extends StatelessWidget {
                   SizedBox(
                     width: 0.9 * MediaQuery.of(context).size.width,
                     child: TextField(
+                      controller: _confirmPasswordController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -74,7 +111,7 @@ class SignupPage extends StatelessWidget {
                   SizedBox(
                     width: 0.4 * MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                      onPressed: (){},
+                      onPressed: signup,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF776DBD),
                         shape: RoundedRectangleBorder(
