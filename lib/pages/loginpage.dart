@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/pages/profilepage.dart';
 import 'package:loginpage/pages/signup.dart';
 
 import '../auth/auth_service.dart';
@@ -26,6 +27,9 @@ class _LoginPageState extends State<LoginPage> {
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Login Successfull")));
       }
+      Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProfilePage()));
     }
     catch(e) {
       if (mounted) {
@@ -94,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     width: 0.4 * MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                      onPressed: (){},
+                      onPressed: login,
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF776DBD),
                           shape: RoundedRectangleBorder(
