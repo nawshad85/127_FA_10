@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loginpage/pages/signup.dart';
 
+import '../auth/auth_service.dart';
+
 // keyboard_arrow_left_sharp
 
 class LoginPage extends StatefulWidget {
@@ -11,6 +13,26 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final authService = AuthService();
+  void login() async{
+    final email = _emailController.text;
+    final password = _passwordController.text;
+    // print("Email: $email, Password: $password");
+    try {
+      await authService.singInWithEmailPassword(email, password);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Login Successfull")));
+      }
+    }
+    catch(e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
+      }
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     width: 0.9 * MediaQuery.of(context).size.width,
                     child: TextField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -58,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     width: 0.9 * MediaQuery.of(context).size.width,
                     child: TextField(
+                      controller: _passwordController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
