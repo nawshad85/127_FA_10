@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/auth/auth_gate.dart';
 import 'package:loginpage/pages/LoginPage.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
                 ElevatedButton(onPressed: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                    MaterialPageRoute(builder: (context) => AuthGate()),
                   );
                 }, child: Text("Get Started"))
               ],

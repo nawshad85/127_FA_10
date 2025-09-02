@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/pages/note_page.dart';
 import 'package:loginpage/pages/signup.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'pages/loginpage.dart';
