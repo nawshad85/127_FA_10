@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/pages/note_page.dart';
 
 import '../auth/auth_service.dart';
 
@@ -26,7 +27,20 @@ class _ProfilePageState extends State<ProfilePage> {
         ],
       ),
       body: Center(
-        child: Text(currentEmail!),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(currentEmail!),
+            SizedBox(height: 20),
+            ElevatedButton(onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotePage()
+                )
+              );
+            }, child: Text("notepage"))
+          ],
+        )
       ),
     );
   }
